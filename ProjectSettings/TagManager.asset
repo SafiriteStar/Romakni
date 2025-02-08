@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Wall
+  - PlayerProjectile
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - PlayerWall
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: MapFloor
+    uniqueID: 2715752967
+    locked: 0
+  - name: MapWall
+    uniqueID: 2487255185
+    locked: 0
+  - name: MapDecorations
+    uniqueID: 3474875431
+    locked: 0
+  - name: Enemies
+    uniqueID: 4076531661
+    locked: 0
+  - name: Player
+    uniqueID: 104394027
+    locked: 0
+  - name: Projectiles
+    uniqueID: 3252582523
+    locked: 0
+  - name: Effects
+    uniqueID: 674563125
+    locked: 0
+  - name: Text
+    uniqueID: 3048086855
+    locked: 0
+  m_RenderingLayers:
+  - Default
