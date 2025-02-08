@@ -22,7 +22,7 @@ public class Money : MonoBehaviour
         if (collision.CompareTag(playerTag))
         {
             // Player picked up money
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<EconomyManager>().ChangeMoneyAmount(value);
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<EconomyManager>().CollectMoney(value);
         }
     }
 }

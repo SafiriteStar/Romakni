@@ -27,9 +27,15 @@ public class EconomyManager : MonoBehaviour
 
     private GameManager gameManager;
 
+    // We need this for the rogue
+    public void CollectMoney(int moneyAmount)
+    {
+        ChangeMoneyAmount(Mathf.RoundToInt(moneyAmount * gameManager.GetPlayerController().GetMoneyMultiplier()));
+    }
+
     public void ChangeMoneyAmount(int changeAmount)
     {
-        totalMoney += Mathf.RoundToInt(changeAmount * gameManager.GetPlayerController().GetMoneyMultiplier());
+        totalMoney += Mathf.RoundToInt(changeAmount);
 
         UpdateMoneyUI();
     }
