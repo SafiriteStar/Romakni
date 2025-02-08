@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private WaveData[] waves;
     private Queue<EnemySpawnData> enemySpawnQueue;
     int liveEnemies = 0;
-
     private float spawnTimer;
+
+    private GameObject playerGO;
 
     public delegate void OnCompleteCall();
     private OnCompleteCall callOnComplete;
@@ -51,6 +53,7 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerGO = GameObject.FindGameObjectWithTag("Player");
         enemySpawnQueue = new Queue<EnemySpawnData>();
 
         for (int i = 0; i < waves.Length; i++)
@@ -109,6 +112,9 @@ public class LevelManager : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, spawnPoint, rotation);
         HealthSystem healthSystem = enemyGO.GetComponent<HealthSystem>();
         healthSystem.SetOnDeathCall(EnemyDied);
+
+        AIDestinationSetter aIDestinationSetter = enemyGO.AddComponent<AIDestinationSetter>();
+        aIDestinationSetter.target = playerGO.transform;
 
         liveEnemies++;
     }

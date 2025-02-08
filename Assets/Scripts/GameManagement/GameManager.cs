@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
         levels[levelIndex].gameObject.SetActive(true);
         levels[levelIndex].SetOnCompleteCall(LevelComplete);
         levelDisplayTMPro.text = levels[levelIndex].GetLevelName();
+        AstarPath.active.Scan();
     }
 
     private void Awake()

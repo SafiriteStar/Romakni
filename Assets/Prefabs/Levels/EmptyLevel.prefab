@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7984301644831222493}
   - component: {fileID: 1857741071633951824}
   - component: {fileID: 8226325683270887045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2148,11 +2148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde470f2686b76048a29014ef866acb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelName: TestLevel
   spawnPoints:
   - {fileID: 4224315889820271779}
   - {fileID: 5861245337215121025}
   - {fileID: 7012656765283696569}
   - {fileID: 2348408561936768569}
+  graph: 
   waves: []
 --- !u!1 &5169550788735917845
 GameObject:
