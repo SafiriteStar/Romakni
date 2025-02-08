@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
 
         ActivateCurrentLevel();
         UpdateLifeDisplay();
+        gameStarted = true;
     }
 
     public void UpdateLifeDisplay()
