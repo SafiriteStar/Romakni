@@ -4,7 +4,9 @@ public class PlayerController : CharacterController
 {
     [SerializeField] private bool isInShop;
     [SerializeField] private float shopSpeed;
+    [SerializeField] private float moneyCollectMultiplier = 1;
 
+    public float GetMoneyMultiplier() {  return moneyCollectMultiplier; }
     public void SetShop(bool shop) { isInShop = shop; }
 
     protected override float CalculateSpeed()

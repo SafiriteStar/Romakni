@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Transform playerSpawnPoint;
     private GameObject existingPlayer;
+    private PlayerController existingPlayerController;
     private HealthSystem existingplayerHealthSystem;
 
     [SerializeField] private LevelManager[] levels;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     private GameObject[] lifeDisplayGOs;
 
     public GameObject GetExistingPlayer() {  return existingPlayer; }
+    public PlayerController GetPlayerController() { return existingPlayerController; }
+
     public void LevelComplete()
     {
         // We beat the stage
@@ -130,6 +133,8 @@ public class GameManager : MonoBehaviour
 
         existingplayerHealthSystem = existingPlayer.GetComponent<HealthSystem>();
         lifeDisplayGOs = new GameObject[0];
+
+        existingPlayerController = existingPlayer.GetComponent<PlayerController>();
     }
 
     private void Start()

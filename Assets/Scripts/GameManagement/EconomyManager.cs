@@ -29,7 +29,7 @@ public class EconomyManager : MonoBehaviour
 
     public void ChangeMoneyAmount(int changeAmount)
     {
-        totalMoney += changeAmount;
+        totalMoney += Mathf.RoundToInt(changeAmount * gameManager.GetPlayerController().GetMoneyMultiplier());
 
         UpdateMoneyUI();
     }
