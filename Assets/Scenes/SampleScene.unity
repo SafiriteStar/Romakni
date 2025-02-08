@@ -3826,7 +3826,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -3869,7 +3901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05a13b5e49808e4983f9177a4bedb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 3653420626019913731, guid: 7d944e6c3fc78334c817b4c83ba8191d, type: 3}
+  playerPrefab: {fileID: 926811655577923857, guid: 436cd21025a54754a8dc60c60f8de444, type: 3}
   playerSpawnPoint: {fileID: 239796272}
   levels:
   - {fileID: 603648373}

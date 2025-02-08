@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public int damageModifier { get; private set; }
     public int numberOfAttacksModifier { get; private set; }
     public float attackSpeedModifier { get; private set; }
+    [SerializeField] private float attackSpeedModifierEffectiveness = 1f;
     private float attackTimer = 0;
 
     [SerializeField] Transform[] shootPoints;
@@ -151,7 +152,7 @@ public class Weapon : MonoBehaviour
     {
         if (attackTimer > 0)
         {
-            attackTimer -= Time.deltaTime * (baseAttackSpeed + attackSpeedModifier);
+            attackTimer -= Time.deltaTime * (baseAttackSpeed + (attackSpeedModifier * attackSpeedModifierEffectiveness));
         }
     }
 }

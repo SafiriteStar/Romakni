@@ -96,12 +96,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5981753306318175224}
+  - component: {fileID: 3539219286727751034}
   - component: {fileID: 1386526085820702764}
   - component: {fileID: 7967435640789307837}
   - component: {fileID: 5965526813034356603}
   - component: {fileID: 6939736992730192355}
   - component: {fileID: 3619417508721124300}
-  - component: {fileID: 3965093366423451604}
+  - component: {fileID: 3452011725843930943}
   m_Layer: 7
   m_Name: Projectile
   m_TagString: PlayerProjectile
@@ -125,6 +126,28 @@ Transform:
   - {fileID: 6355027581641867242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &3539219286727751034
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697940924255890623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &1386526085820702764
 Rigidbody2D:
   serializedVersion: 5
@@ -229,7 +252,7 @@ MonoBehaviour:
   damageTargets:
   - Enemy
   damage: 1
---- !u!114 &3965093366423451604
+--- !u!114 &3452011725843930943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,6 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - Wall
   - Enemy
+  - Wall
   effect: {fileID: 0}
