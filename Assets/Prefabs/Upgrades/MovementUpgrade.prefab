@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCost: 1
   explanationTMPro: {fileID: 2799045822211181420}
-  explanationText: ++Spd
+  explanationText: +Spd
   costTMPro: {fileID: 49450690323961776}
   speedIncrement: 0.5
 --- !u!114 &2799045822211181420 stripped
