@@ -63,6 +63,8 @@ public class EconomyManager : MonoBehaviour
         // Don't want to immediately go to next level!
         currentGooberMoveToPoint.ReachedPoint.RemoveListener(gameManager.EnableToNextLevel);
         currentGooberMoveToPoint.ReachedPoint.AddListener(SpawnShop);
+
+        gameManager.GetExistingPlayer().GetComponent<PlayerController>().SetShop(true);
     }
 
     public void SpawnShop()
@@ -93,6 +95,8 @@ public class EconomyManager : MonoBehaviour
         }
 
         DespawnGoober();
+
+        gameManager.GetExistingPlayer().GetComponent<PlayerController>().SetShop(false);
     }
 
     public void DespawnGoober()

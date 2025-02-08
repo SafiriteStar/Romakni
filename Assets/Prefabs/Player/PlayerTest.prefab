@@ -161,9 +161,9 @@ GameObject:
   - component: {fileID: 7634909970362225762}
   - component: {fileID: 2286957107031924880}
   - component: {fileID: 8158364090734291691}
-  - component: {fileID: 1223781434774813140}
   - component: {fileID: 7763521272707048642}
   - component: {fileID: 7962327137496331024}
+  - component: {fileID: 8406282301593130510}
   m_Layer: 7
   m_Name: PlayerTest
   m_TagString: Player
@@ -273,19 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e80deb98e0c894f9904cc6241a9f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1223781434774813140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642016406841378352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4df82b7d65620204bbf2ec3282e2c769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!114 &7763521272707048642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +288,7 @@ MonoBehaviour:
   attackGO: {fileID: 8697940924255890623, guid: 63a6d7a98e89e7240ba6a00e59232af0, type: 3}
   baseDamage: 1
   baseNumberOfAttacks: 1
-  baseAttackSpeed: 0.3
+  baseAttackSpeed: 4
   spawnOffset: 1
   spreadAngle: 40
   shootPoints:
@@ -333,6 +320,21 @@ MonoBehaviour:
   flashSpeed: 0.1
   flashColor: {r: 1, g: 0, b: 0, a: 0.78431374}
   deathEffect: {fileID: 4244381173743933029, guid: 99d82efe4b8c3664aad2be559acb9027, type: 3}
+--- !u!114 &8406282301593130510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642016406841378352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875af2bf20709b348a6c91bca5c8a98e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  isInShop: 0
+  shopSpeed: 2
 --- !u!1 &3070716805268991833
 GameObject:
   m_ObjectHideFlags: 0

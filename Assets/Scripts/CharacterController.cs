@@ -12,12 +12,17 @@ public class CharacterController : MonoBehaviour
     
     public void SetMove(Vector2 direction)
     {
-        this.moveVector = direction * (speed + speedModifier);
+        this.moveVector = direction * CalculateSpeed();
     }
 
     public void ChangeSpeedModifier(float speedChange)
     {
         speedModifier += speedChange;
+    }
+
+    protected virtual float CalculateSpeed()
+    {
+        return speed + speedModifier;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

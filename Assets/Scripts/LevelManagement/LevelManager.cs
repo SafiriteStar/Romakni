@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         playerGO = GameObject.FindGameObjectWithTag("Player");
+
         enemySpawnQueue = new Queue<EnemySpawnData>();
 
         for (int i = 0; i < waves.Length; i++)

@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
         }
 
         // We are allowed to attack
-        attackTimer = baseAttackSpeed / (attackSpeedModifier + 1);
+        attackTimer = 1.5f;
 
         Attack(attackDirection);
     }
@@ -151,7 +151,7 @@ public class Weapon : MonoBehaviour
     {
         if (attackTimer > 0)
         {
-            attackTimer -= Time.deltaTime;
+            attackTimer -= Time.deltaTime * (baseAttackSpeed + attackSpeedModifier);
         }
     }
 }

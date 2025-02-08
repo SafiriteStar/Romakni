@@ -97,7 +97,7 @@ MonoBehaviour:
   explanationTMPro: {fileID: 2446338086589873656}
   explanationText: +AtkSpd
   costTMPro: {fileID: 541762343481811236}
-  attackSpeedIncrease: 1
+  attackSpeedIncrease: 2
 --- !u!114 &2446338086589873656 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 703382196620598338, guid: 12bb9df4c7aa38441bf229148d62c8ff, type: 3}

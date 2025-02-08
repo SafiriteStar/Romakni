@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private float youWinDisplayTimer = 0f;
     private bool playerWon = false;
 
+    public GameObject GetExistingPlayer() {  return existingPlayer; }
     public void LevelComplete()
     {
         // We beat the stage
@@ -97,7 +98,7 @@ public class GameManager : MonoBehaviour
         if (existingPlayer == null)
         {
             // Create the player
-            Instantiate(playerPrefab, playerSpawnPoint.transform.position, Quaternion.identity);
+            existingPlayer = Instantiate(playerPrefab, playerSpawnPoint.transform.position, Quaternion.identity);
         }
     }
 
