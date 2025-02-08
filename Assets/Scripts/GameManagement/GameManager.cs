@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Transform playerSpawnPoint;
     private GameObject existingPlayer;
+    private HealthSystem existingplayerHealthSystem;
 
     [SerializeField] private LevelManager[] levels;
     private int levelIndex = 0;
@@ -23,6 +24,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float youWinDisplayTime = 5f;
     private float youWinDisplayTimer = 0f;
     private bool playerWon = false;
+
+    [SerializeField] private GameObject lifeDisplayPrefab;
+    [SerializeField] private GameObject lifeDisplayContainer;
+    private GameObject[] lifeDisplayGOs;
 
     public GameObject GetExistingPlayer() {  return existingPlayer; }
     public void LevelComplete()
@@ -68,6 +73,24 @@ public class GameManager : MonoBehaviour
         levelDisplayGO.SetActive(true);
         currencyDisplayGO.SetActive(true);
         ActivateCurrentLevel();
+        UpdateLifeDisplay();
+    }
+
+    public void UpdateLifeDisplay()
+    {
+        int lives = existingplayerHealthSystem.GetLives();
+
+        for (int i = 0; i < lifeDisplayGOs.Length; i++)
+        {
+            Destroy(lifeDisplayGOs[i]);
+        }
+
+        lifeDisplayGOs = new GameObject[lives];
+
+        for (int i = 0; i < lifeDisplayGOs.Length; i++)
+        {
+            lifeDisplayGOs[i] = Instantiate(lifeDisplayPrefab, lifeDisplayContainer.transform);
+        }
     }
 
     private void ReloadScene()
@@ -100,12 +123,18 @@ public class GameManager : MonoBehaviour
             // Create the player
             existingPlayer = Instantiate(playerPrefab, playerSpawnPoint.transform.position, Quaternion.identity);
         }
+
+
+        economyManager = GetComponent<EconomyManager>();
+        levelDisplayTMPro = levelDisplayGO.GetComponent<TextMeshProUGUI>();
+
+        existingplayerHealthSystem = existingPlayer.GetComponent<HealthSystem>();
+        lifeDisplayGOs = new GameObject[0];
     }
 
     private void Start()
     {
-        economyManager = GetComponent<EconomyManager>();
-        levelDisplayTMPro = levelDisplayGO.GetComponent<TextMeshProUGUI>();
+        existingplayerHealthSystem.HealthChanged.AddListener(UpdateLifeDisplay);
     }
 
     // Update is called once per frame

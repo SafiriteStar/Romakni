@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class HealthSystem : MonoBehaviour
     public delegate void OnDeathCall();
     private OnDeathCall callOnDeath;
 
+    public UnityEvent HealthChanged {  get; private set; }
+
     public void SetOnDeathCall(OnDeathCall onDeathCall)
     {
         callOnDeath = onDeathCall;
@@ -29,6 +32,7 @@ public class HealthSystem : MonoBehaviour
     public void AddLives(int livesAmount)
     {
         lives += livesAmount;
+        HealthChanged.Invoke();
     }
 
     public void SetCanTakeDamage(bool canTakeDamage) { this.canTakeDamage = canTakeDamage; }
@@ -66,6 +70,14 @@ public class HealthSystem : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
+        HealthChanged.Invoke();
+    }
+
+    private void Awake()
+    {
+        if (HealthChanged == null)
+            HealthChanged = new UnityEvent();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
