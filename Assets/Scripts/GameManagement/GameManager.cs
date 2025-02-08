@@ -4,6 +4,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject[] classPickerPrefabs;
+    private ClassChoice[] classChoices;
+    [SerializeField] private GameObject classPickerContainer;
+    [SerializeField] private int currentClassChoiceIndex;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Transform playerSpawnPoint;
     private GameObject existingPlayer;
@@ -75,6 +79,12 @@ public class GameManager : MonoBehaviour
         mainMenuGO.SetActive(false);
         levelDisplayGO.SetActive(true);
         currencyDisplayGO.SetActive(true);
+        classPickerContainer.SetActive(false);
+
+        // Get our class choice and set it
+        playerPrefab = classChoices[currentClassChoiceIndex].GetTargetClass();
+        CreatePlayer();
+
         ActivateCurrentLevel();
         UpdateLifeDisplay();
     }
@@ -115,7 +125,7 @@ public class GameManager : MonoBehaviour
         AstarPath.active.Scan();
     }
 
-    private void Awake()
+    private void CreatePlayer()
     {
         // Does the player exist?
         existingPlayer = GameObject.FindGameObjectWithTag("Player");
@@ -127,19 +137,71 @@ public class GameManager : MonoBehaviour
             existingPlayer = Instantiate(playerPrefab, playerSpawnPoint.transform.position, Quaternion.identity);
         }
 
-
-        economyManager = GetComponent<EconomyManager>();
-        levelDisplayTMPro = levelDisplayGO.GetComponent<TextMeshProUGUI>();
-
         existingplayerHealthSystem = existingPlayer.GetComponent<HealthSystem>();
+        existingplayerHealthSystem.HealthChanged.AddListener(UpdateLifeDisplay);
         lifeDisplayGOs = new GameObject[0];
 
         existingPlayerController = existingPlayer.GetComponent<PlayerController>();
     }
 
+    private void Awake()
+    {
+        economyManager = GetComponent<EconomyManager>();
+        levelDisplayTMPro = levelDisplayGO.GetComponent<TextMeshProUGUI>();
+    }
+
+    private void SetUpClassChoices()
+    {
+        classChoices = new ClassChoice[classPickerPrefabs.Length];
+
+        for (int i = 0; i < classPickerPrefabs.Length; i++)
+        {
+            GameObject classChoiceGO = Instantiate(classPickerPrefabs[i], classPickerContainer.transform);
+
+            classChoices[i] = classChoiceGO.GetComponent<ClassChoice>();
+        }
+
+        UpdateClassChoiceDisplay();
+    }
+
+    private void UpdateClassChoiceDisplay()
+    {
+        for (int i = 0; i < classChoices.Length; i++)
+        {
+            classChoices[i].SetSelected(i == currentClassChoiceIndex);
+        }
+    }
+
+    private void MoveClassIndicator(int direction)
+    {
+        int newIndex = currentClassChoiceIndex + direction;
+        if (newIndex > -1 && newIndex < classChoices.Length)
+        {
+            currentClassChoiceIndex = newIndex;
+            UpdateClassChoiceDisplay();
+        }
+    }
+
+    private void MenuInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveClassIndicator(-1);
+        }
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MoveClassIndicator(1);
+        }
+    }
+
     private void Start()
     {
-        existingplayerHealthSystem.HealthChanged.AddListener(UpdateLifeDisplay);
+        SetUpClassChoices();
     }
 
     // Update is called once per frame
@@ -157,9 +219,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (!gameStarted && Input.GetKeyDown(KeyCode.E))
+        if (!gameStarted)
         {
-            StartGame();
+            MenuInputs();
         }
+
     }
 }
