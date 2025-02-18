@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class AIInput : MonoBehaviour
 {
-    private CharacterController aiController;
+    private EntityController aiController;
     private Vector2 moveDirection;
     private Transform playerGO;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        aiController = GetComponent<CharacterController>();
+        aiController = GetComponent<EntityController>();
         moveDirection = Vector2.zero;
         playerGO = GameObject.FindGameObjectWithTag("Player").transform;
     }

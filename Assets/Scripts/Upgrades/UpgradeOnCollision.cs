@@ -6,7 +6,7 @@ public class UpgradeOnCollision : MonoBehaviour
 {
     [SerializeField] private int baseCost = 1;
 
-    protected CharacterController playerController;
+    protected EntityController playerController;
     protected Weapon playerWeapon;
     protected HealthSystem playerHealthSystem;
     protected EconomyManager economyManager;
@@ -51,7 +51,7 @@ public class UpgradeOnCollision : MonoBehaviour
     void Start()
     {
         GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
-        playerController = playerGO.GetComponent<CharacterController>();
+        playerController = playerGO.GetComponent<EntityController>();
         playerWeapon = playerGO.GetComponent<Weapon>();
         playerHealthSystem = playerGO.GetComponent<HealthSystem>();
 

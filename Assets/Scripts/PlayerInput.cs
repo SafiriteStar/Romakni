@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private CharacterController playerController;
+    private EntityController playerController;
     private Weapon weapon;
     private Vector2 moveDirection;
     private Vector2 attackDirection;
@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerController = GetComponent<CharacterController>();
+        playerController = GetComponent<EntityController>();
         weapon = GetComponent<Weapon>();
         moveDirection = Vector2.zero;
     }

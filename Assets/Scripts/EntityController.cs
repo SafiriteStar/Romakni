@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class EntityController : MonoBehaviour
 {
     [SerializeField] protected float speed = 2;
     public float speedModifier { get; private set; }
